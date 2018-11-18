@@ -28,7 +28,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
 
     private int TempCounter = 0;
-    public static final String TAG = "MQ";
+    //public static final String TAG = "MQ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
