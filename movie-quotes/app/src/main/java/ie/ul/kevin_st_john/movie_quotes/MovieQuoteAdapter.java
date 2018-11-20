@@ -1,9 +1,14 @@
 package ie.ul.kevin_st_john.movie_quotes;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+//import android.view.View;
+//import android.view.View.OnClickListener;
+//import android.view.View;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -69,10 +74,20 @@ public class MovieQuoteAdapter extends RecyclerView.Adapter<MovieQuoteAdapter.Mo
         private TextView mMovieTextView;
 
 
-        public MovieQuoteViewHolder(@NonNull View itemView) {
+        public MovieQuoteViewHolder(@NonNull final View itemView) {
             super(itemView);
             mQuoteTextView = itemView.findViewById(R.id.itemview_quote);
             mMovieTextView = itemView.findViewById(R.id.itemview_movie);
-        }
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Context c = itemView.getContext();
+                    Intent intent =new Intent(c, MovieQuoteDetailActivity.class);
+                    c.startActivity(intent);
+                }
+            });
+
+         }
     }
 }
