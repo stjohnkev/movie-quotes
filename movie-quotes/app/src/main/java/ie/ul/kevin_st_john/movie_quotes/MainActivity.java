@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         View view = getLayoutInflater().inflate(R.layout.moviequote_dialog, null, false);
 
         builder.setView(view);
+        builder.setTitle("New Quote");
 
         //dialog_quote_edittext is the Edit Text View you created in new XML file moviequote_dialog
         final TextView quoteEditText = view.findViewById(R.id.dialog_quote_edittext);

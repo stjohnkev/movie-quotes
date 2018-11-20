@@ -21,6 +21,8 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import org.w3c.dom.Document;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -82,8 +84,13 @@ public class MovieQuoteAdapter extends RecyclerView.Adapter<MovieQuoteAdapter.Mo
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    DocumentSnapshot ds = mMovieQuotesSnapshots.get(getAdapterPosition());
                     Context c = itemView.getContext();
                     Intent intent =new Intent(c, MovieQuoteDetailActivity.class);
+
+                    //push data to the 2nd screen
+                    // you are passing to the other intent
+                    intent.putExtra(Constants.EXTRA_DOC_ID, ds.getId());
                     c.startActivity(intent);
                 }
             });
